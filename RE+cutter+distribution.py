@@ -69,11 +69,11 @@ def calculateREs(RE, REsite, genome):
     re_fragment_median=np.around(np.median(binsize))
     print("{} mean {}, median {}".format(RE, re_fragment_mean, re_fragment_median))
     #Plot distribution of restriction fragments length
-    plt.figure()
-    plt.hist(binsize)
-    plt.title('{} mean {}, median {}'.format(RE, np.around(np.mean(binsize)), np.around(np.median(binsize))))
-    plt.xlabel('size of {} fragment'.format(RE))
-    plt.close()
+    #plt.figure()
+    #plt.hist(binsize)
+    #plt.title('{} mean {}, median {}'.format(RE, np.around(np.mean(binsize)), np.around(np.median(binsize))))
+    #plt.xlabel('size of {} fragment'.format(RE))
+    #plt.close()
     return sites, binsize, re_fragment_mean, re_fragment_median
 
 #######
@@ -118,11 +118,11 @@ def calcEmptys(RE, REsites_list, genome, binsize = 10000):
     print("Number of bins without {} sites {}".format(RE, len(Bins_no_site)))
     print("Ratio of bins without {} sites {}\n".format(RE, Bins_no_site_ratio))
     #Plot distribution of the number of cuts that fall into bins
-    plt.figure()
-    plt.hist(Sites_in_bins)
-    plt.title(str(RE))
-    plt.xlabel('{} cuts per bin'.format(RE))
-    plt.close()
+    #plt.figure()
+    #plt.hist(Sites_in_bins)
+    #plt.title(str(RE))
+    #plt.xlabel('{} cuts per bin'.format(RE))
+    #plt.close()
     return Sites_in_bins, Bins_no_site, len(Bins_no_site), Bins_no_site_ratio
 
 #######
@@ -206,6 +206,7 @@ def plot_cut_in_bin(RE_ranked, RE_data_dict, path_out):
         iter_plot[i].set_xlabel('Number of cuts', size=18)  
         iter_plot[i].set_ylabel('Number of bins', size=18)
         iter_plot[i].tick_params(axis='both', labelsize=14)
+        print('mean '+str(int(np.mean(catnum)))+' cuts\nmedian '+str(int(np.median(catnum)))+' cuts')
         iter_plot[i].annotate('mean '+str(int(np.mean(catnum)))+' cuts\nmedian '+str(int(np.median(catnum)))+' cuts', xytext=(0.4, 0.8), textcoords='axes fraction', xy=(0, 0), size=16.5)
         i+=1
     
@@ -259,6 +260,7 @@ def empty_num_and_ratio_plot(RE_ranked, RE_data_dict, path_out):
         plots[1].annotate(str(round(value_ratio[i], 3)), xytext=(i, value_ratio[i]+0.01), textcoords='data', xy=(0, 0), size=13, weight="bold")    
     plt.tight_layout()
     plt.savefig(path_out+"E_coli_re_analysis_empty_bins.png", figsize=(12,12), dpi=400)
+    plt.close()
     return
 
 #######

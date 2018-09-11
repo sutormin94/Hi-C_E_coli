@@ -22,3 +22,6 @@ for i in allSites2:
 print(sites2)
 
 print(sorted(sites1+sites2))
+
+ar=[1,2,3,4,5,6,7,8]
+print(ar[2:4])
