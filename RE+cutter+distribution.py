@@ -168,8 +168,8 @@ def plot_fragments_length(RE_ranked, RE_data_dict, path_out):
         fragsize=RE_data_dict[RE_name][1]
         iter_plot[i].hist(fragsize, edgecolor='black', linewidth=1)
         iter_plot[i].set_title(RE_name, size=22)
-        iter_plot[i].set_xlabel('Size of fragments', size=18)  
-        iter_plot[i].set_ylabel('Number of fragments, bp', size=18)
+        iter_plot[i].set_xlabel('Size of fragments, bp', size=18)  
+        iter_plot[i].set_ylabel('Number of fragments', size=18)
         iter_plot[i].tick_params(axis='both', labelsize=14)
         iter_plot[i].annotate('mean {} bp\nmedian {} bp'.format(int(np.mean(fragsize)), int(np.median(fragsize))), xytext=(0.2, 0.8), textcoords='axes fraction', xy=(0, 0), size=16.5)
         i+=1
